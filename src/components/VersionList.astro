@@ -1,0 +1,23 @@
+---
+import { AAC } from '../lib/aac';
+
+interface Props {
+  shown: string;
+}
+
+const { shown } = Astro.props;
+const href = (tag: string) => (tag === AAC.current ? '/spec/' : `/spec/${tag}/`);
+---
+
+<nav class="versions" aria-label="Specification versions">
+  <p>Versions</p>
+  <ul>
+    {AAC.versions.map((tag) => (
+      <li>
+        <a href={href(tag)} aria-current={tag === shown ? 'page' : undefined}>
+          {tag}{tag === AAC.current && ' (current)'}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

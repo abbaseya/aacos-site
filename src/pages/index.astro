@@ -1,0 +1,21 @@
+---
+import Page from '../layouts/Page.astro';
+import { AAC, renderDocument } from '../lib/aac';
+
+const { Content } = await renderDocument(AAC.current, 'HOME');
+---
+
+<Page title="AAC" description="An open standard for what a gate judges against: the acceptance criteria of one unit of work, declared before the work and held by the builder and by every gate.">
+  <section class="hero">
+    <p class="eyebrow">Open standard · Draft {AAC.current} · MIT</p>
+    <h1>Agent Acceptance Contract</h1>
+    <p class="lede">AGC says how a gate answers. AAC says what it judges against: one JSON object, declared before the work, held by the agent that builds and by every gate that judges.</p>
+    <p class="actions">
+      <a class="button primary" href="/spec/">Read the specification</a>
+      <a class="button" href="/validate/">Validate a contract</a>
+    </p>
+  </section>
+  <article class="prose">
+    <Content />
+  </article>
+</Page>

@@ -1,0 +1,17 @@
+---
+import Page from '../../layouts/Page.astro';
+import VersionList from '../../components/VersionList.astro';
+import { AAC, REPO_URL, renderDocument } from '../../lib/aac';
+
+const { Content } = await renderDocument(AAC.current, 'SPEC');
+---
+
+<Page title="Specification" description={`The normative AAC specification, ${AAC.current}.`}>
+  <p class="source-note">
+    Rendered from <a href={`${REPO_URL}/blob/${AAC.current}/SPEC.md`}>SPEC.md at {AAC.current}</a>.
+  </p>
+  <VersionList shown={AAC.current} />
+  <article class="prose">
+    <Content />
+  </article>
+</Page>

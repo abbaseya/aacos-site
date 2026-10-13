@@ -1,0 +1,18 @@
+{
+  "name": "aacos-site",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.18.1",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "fetch:aac": "node scripts/fetch-aac.mjs",
+    "dev": "yarn fetch:aac && astro dev",
+    "build": "yarn fetch:aac && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "7.3.4"
+  }
+}

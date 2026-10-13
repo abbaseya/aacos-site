@@ -1,0 +1,18 @@
+---
+import Page from '../../layouts/Page.astro';
+import { AAC, REPO_URL, renderDocument } from '../../lib/aac';
+
+const { Content } = await renderDocument(AAC.current, 'VALIDATE');
+---
+
+<Page title="Validate" description="How to check an AAC contract, a round against it, and a chain of revisions with the validator.">
+  <h1 class="page-title">Validate a contract</h1>
+  <p class="source-note">
+    Run these commands in a clone of <a href={REPO_URL}>{AAC.repo}</a>, at tag {AAC.current}:
+  </p>
+  <pre class="clone"><code>git clone --branch {AAC.current} {REPO_URL}.git
+cd agent-acceptance-contract</code></pre>
+  <article class="prose">
+    <Content />
+  </article>
+</Page>
